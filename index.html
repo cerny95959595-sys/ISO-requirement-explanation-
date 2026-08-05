@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b172a">
+  <meta name="description" content="Trilingual ISO 9001, ISO 14001, ISO 45001 and ISO 50001 requirements, quizzes and audit preparation.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ISO Audit Atlas">
+  <meta name="format-detection" content="telephone=no">
+  <title>ISO Requirements & Audit Atlas 2026</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="appShell" class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <button class="brand" data-action="go-home" aria-label="Home">
+        <span class="brand-mark">IA</span>
+        <span><strong>ISO Audit Atlas</strong><small>2026</small></span>
+      </button>
+      <nav id="sideNav" class="side-nav"></nav>
+      <div class="sidebar-foot">
+        <span class="status-dot"></span><span data-i18n="offlineReady">Offline-ready PWA</span>
+        <small id="sideVersion"></small>
+      </div>
+    </aside>
+    <div class="app-column">
+      <header class="topbar">
+        <button id="mobileMenu" class="icon-button mobile-only" data-action="toggle-menu" aria-label="Menu">☰</button>
+        <div class="page-heading">
+          <h1 id="pageTitle">ISO Requirements & Audit Atlas 2026</h1>
+          <p id="pageSubtitle"></p>
+        </div>
+        <div class="top-actions">
+          <button class="lang-button" data-action="cycle-language" id="langButton">CZ</button>
+          <button class="icon-button" data-action="cycle-theme" id="themeButton" aria-label="Theme">◐</button>
+        </div>
+      </header>
+      <main id="mainContent" tabindex="-1"></main>
+      <nav id="bottomNav" class="bottom-nav" aria-label="Mobile navigation"></nav>
+    </div>
+  </div>
+  <div id="overlay" class="overlay" data-action="close-menu"></div>
+  <div id="modalRoot"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input id="importFile" type="file" accept="application/json,.json" hidden>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

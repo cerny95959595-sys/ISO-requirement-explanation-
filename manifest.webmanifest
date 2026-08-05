@@ -1,0 +1,38 @@
+{
+  "id": "./",
+  "name": "ISO Requirements & Audit Atlas 2026",
+  "short_name": "ISO Audit Atlas",
+  "description": "Trilingual ISO requirements, explanations, quizzes and audit preparation for ISO 9001, 14001, 45001 and 50001.",
+  "lang": "cs",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#07111e",
+  "theme_color": "#0b172a",
+  "orientation": "any",
+  "categories": [
+    "education",
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
