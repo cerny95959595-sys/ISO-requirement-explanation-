@@ -1,7 +1,7 @@
 'use strict';
-const CACHE_NAME = 'iso-audit-atlas-2.0.0';
+const CACHE_NAME = 'iso-atlas-professional-3.0.0';
 const APP_SHELL = [
-  './','./index.html','./styles.css','./data.js','./app.js','./manifest.webmanifest',
+  './','./index.html','./styles.css','./data.js','./ui-pro.js','./app.js','./manifest.webmanifest',
   './icons/icon-32.png','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png',
   './requirements-data.json','./requirements-database.csv','./audit-question-bank.csv'
 ];

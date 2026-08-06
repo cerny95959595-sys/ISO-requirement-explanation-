@@ -255,3 +255,43 @@ hr { border:0; border-top:1px solid var(--line); margin:20px 0; }
   .card { box-shadow:none; break-inside:avoid; }
   body { background:white; color:black; }
 }
+
+/* ISO Atlas Professional 3.0 additions */
+.pro-filters { grid-template-columns:minmax(230px,2fr) repeat(5,minmax(130px,1fr)); }
+.process-badge { cursor:pointer; color:var(--text); }
+.audit-lenses { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.assistant-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.assistant-grid .wide { grid-column:1/-1; }
+.risk-checks { display:flex; flex-wrap:wrap; gap:8px; }
+.risk-check { border:1px solid var(--line); background:var(--surface-2); border-radius:999px; padding:8px 11px; }
+.match-list { display:grid; gap:10px; }
+.match-card { display:grid; grid-template-columns:80px minmax(0,1fr) auto; gap:14px; align-items:center; box-shadow:none; }
+.match-card h3 { margin:0 0 6px; }
+.match-card p { margin:0 0 8px; color:var(--muted); line-height:1.5; }
+.match-score { text-align:center; border-right:1px solid var(--line); padding-right:12px; }
+.match-score strong { display:block; font-size:24px; color:var(--primary-2); }
+.match-score span { font-size:10px; color:var(--muted); }
+.confidence-track { height:5px; margin-top:8px; border-radius:999px; background:var(--surface-3); overflow:hidden; }
+.confidence-track span { display:block; height:100%; background:linear-gradient(90deg,var(--primary),var(--success)); }
+.finding-draft { display:grid; grid-template-columns:minmax(110px,.32fr) 1fr; gap:8px 14px; margin:0; }
+.finding-draft dt { font-weight:800; color:var(--muted); }
+.finding-draft dd { margin:0; line-height:1.55; }
+.history-button { width:100%; border:0; background:transparent; color:inherit; text-align:left; cursor:pointer; }
+.history-button:hover { background:var(--surface-2); }
+.standard-check small { line-height:1.25; }
+@media (max-width:1280px) {
+  .pro-filters { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .pro-filters > :first-child { grid-column:1/-1; }
+  .audit-lenses { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:760px) {
+  .bottom-nav { grid-template-columns:repeat(7,minmax(52px,1fr)); overflow-x:auto; }
+  .bottom-nav .nav-button { min-width:52px; }
+  .pro-filters, .assistant-grid { grid-template-columns:1fr; }
+  .pro-filters > :first-child, .assistant-grid .wide { grid-column:auto; }
+  .audit-lenses { grid-template-columns:1fr; }
+  .match-card { grid-template-columns:62px minmax(0,1fr); }
+  .match-card > .button { grid-column:2; justify-self:start; }
+  .finding-draft { grid-template-columns:1fr; }
+  .finding-draft dt { margin-top:6px; }
+}

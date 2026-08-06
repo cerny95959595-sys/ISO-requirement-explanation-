@@ -1,92 +1,116 @@
-# ISO Requirements & Audit Atlas 2026 — QA report
+# ISO Atlas Professional 2026 — QA report
 
 Build date: **2026-08-05**  
-Application version: **2.0.0**
+Application version: **3.0.0**  
+Data status: **2026-08-05**
 
-## Database validation
+## 1. Database validation
 
-- **166** unique clause-level requirement records
+- **289** unique requirement/guidance/sector records:
   - ISO 9001: **59**
   - ISO 14001: **35**
   - ISO 45001: **40**
   - ISO 50001: **32**
-- **1,494** unique audit questions
-- **3** complete language layers: English, Czech and German
-- Every requirement record contains:
-  - title;
-  - original paraphrase of the requirement;
-  - practical explanation;
-  - typical evidence;
-  - common pitfalls;
-  - three internal-audit questions;
-  - three customer-audit questions;
-  - three ISO/certification-audit questions.
-- No duplicate requirement IDs
-- No duplicate audit-question IDs
-- No orphaned audit questions
-- No missing mandatory EN/CZ/DE fields
-- Requirements CSV: **166** data rows
-- Audit-question CSV: **1,494** data rows
+  - ISO 19011: **30**
+  - ISO 31000: **27**
+  - IATF 16949: **66**
+- **3,468** unique audit questions.
+- Four audit lenses for every record:
+  - internal audit;
+  - customer/second-party audit;
+  - supplier audit;
+  - certification/ISO audit.
+- Three questions per lens and record.
+- Complete EN/CZ/DE layers for mandatory record and audit-question fields.
+- **16** process areas.
+- **34** glossary entries.
+- **18** assistant rule sets.
+- No duplicate requirement IDs.
+- No duplicate audit-question IDs.
+- No orphaned audit questions.
+- Requirements CSV data rows: **289**.
+- Audit-question CSV data rows: **3,468**.
 
-## Automated interface verification
+## 2. Static code and package checks
 
-The application was exercised in headless Chromium using the compiled standalone bundle in two viewports:
+Passed checks:
 
-- Desktop: **1440 × 1000**
-- Touch/mobile: **390 × 844**
+- `app.js` JavaScript syntax.
+- `ui-pro.js` JavaScript syntax.
+- `sw.js` JavaScript syntax.
+- `manifest.webmanifest` valid JSON.
+- `requirements-data.json` valid JSON.
+- All referenced application-shell files present.
+- Required PWA icons present:
+  - 32 × 32;
+  - 180 × 180;
+  - 192 × 192;
+  - 512 × 512;
+  - 512 × 512 maskable.
+- Service-worker cache version aligned to application version 3.0.0.
+- GitHub Pages package places `index.html` in the ZIP root.
 
-**48 of 48 automated assertions passed.**
+## 3. Automated interface verification
 
-Verified flows:
+The compiled standalone application was exercised in headless Chromium with:
 
-- Initial rendering without uncaught JavaScript errors
-- No browser console errors
-- No horizontal page overflow in the tested desktop and mobile views
-- EN → DE → CZ language switching
-- Rendering all 166 requirements
-- Full-text requirement filtering
-- Requirement-detail modal and content sections
-- Audit-checklist generation with 10 sampled questions
-- Audit assessment persistence in local state
-- Knowledge-test generation with four answer options
-- Immediate answer feedback and next-question navigation
-- Integrated four-standard matrix
-- Glossary
-- Official-source register
-- Settings view
+- desktop viewport: **1440 × 1000**;
+- touch/mobile viewport: **390 × 844**.
 
-## Package and PWA checks
+All planned automated assertions passed, with **0 uncaught JavaScript errors** and **0 browser-console errors**.
 
-- `app.js` JavaScript syntax: passed
-- `sw.js` JavaScript syntax: passed
-- `manifest.webmanifest`: valid JSON
-- `requirements-data.json`: valid JSON
-- All service-worker shell assets returned HTTP 200 from a local static server
-- Appropriate static-server MIME types were returned for HTML, CSS, JavaScript, JSON, manifest, CSV and PNG files
-- Icon dimensions verified:
-  - 32 × 32
-  - 180 × 180
-  - 192 × 192
-  - 512 × 512
-  - 512 × 512 maskable
-- ZIP structure places `index.html` in the root
+Verified flows included:
 
-## Professional and copyright controls
+- initial application rendering and data statistics;
+- rendering all seven standard/module cards;
+- EN, CZ and DE switching;
+- desktop and mobile responsive layout without horizontal page overflow;
+- rendering and searching all 289 records;
+- filtering by standard, process and module type;
+- requirement detail with all four audit lenses;
+- internal/customer/supplier/certification audit setup;
+- balanced generation of a supplier audit checklist;
+- assessment and evidence entry;
+- Smart Audit Assistant clause matching;
+- structured draft finding and completeness check;
+- creation of a focused audit from assistant matches;
+- quiz generation and answer processing;
+- topic/process matrix with seven modules and sixteen processes;
+- mobile bottom navigation and mobile assistant rendering.
 
-- The application states that its content is an independent paraphrase and implementation guide, not normative ISO text.
-- The application directs users to licensed official standards for certification and conformity decisions.
-- The ISO 9001 Edition 6 module is identified as non-normative transition readiness until the final standard is officially published and licensed.
-- Public GitHub Pages confidentiality limitations are displayed in the application and installation guide.
+## 4. Smart Audit Assistant controls
 
-## Remaining acceptance checks after deployment
+Verified controls:
 
-The following checks depend on the final hosting environment and physical device and therefore remain a brief deployment acceptance test:
+- the assistant operates locally from deterministic rules, keywords, process mapping and selected risk indicators;
+- no cloud AI endpoint or external API key is required;
+- entered observations are not transmitted by the application;
+- output is explicitly labelled as decision support rather than a certification decision;
+- the user is instructed to verify the applicable criterion and classification;
+- analysis can be copied, exported or converted to a focused audit.
 
-1. Open the final GitHub Pages HTTPS address on the intended iPhone model.
-2. Add the app to the Home Screen and reopen it from the icon.
-3. Confirm offline operation after one complete online load.
-4. Confirm that an app update refreshes the service-worker cache.
-5. Confirm organizational mobile-device-management restrictions, if applicable.
-6. Perform a content review against the organization’s licensed copies of the applicable ISO standards before using the database as controlled audit criteria.
+## 5. Copyright and professional controls
 
-The automated test environment blocked direct Chromium navigation by administrator policy, so UI testing used the complete standalone bundle while static HTTP serving and asset availability were verified separately. This limitation does not affect the generated deployment files, but it is why the physical hosted-PWA check is explicitly retained above.
+The application states that:
+
+- content consists of independent paraphrases, implementation guidance and original questions;
+- copyrighted normative wording is not reproduced;
+- ISO 19011 and ISO 31000 are guidance rather than certifiable requirements;
+- IATF use requires current authorized publications, sanctioned interpretations, FAQs, certification rules and customer-specific requirements;
+- licensed official documents remain necessary for audit and certification decisions;
+- ISO 9001 Edition 6 is treated as transition watch until the final licensed edition is published and incorporated through controlled review.
+
+## 6. Deployment acceptance checks retained
+
+The following checks depend on the final GitHub Pages environment and physical device:
+
+1. Confirm the final HTTPS URL opens without a 404 error.
+2. Install from Safari on the intended iPhone model.
+3. Reopen from the Home Screen icon.
+4. Confirm offline operation after one full online load.
+5. Confirm the update prompt after deploying a future cache version.
+6. Confirm local export/import on the intended browser.
+7. Review database content against the organization’s licensed standards and current customer-specific requirements before treating it as controlled audit criteria.
+8. Confirm any company mobile-device-management restrictions.
+
+The automated browser environment did not permit ordinary local URL navigation, so the complete standalone bundle was used for UI execution while package structure and application-shell availability were verified separately.

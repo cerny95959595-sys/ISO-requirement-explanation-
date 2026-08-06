@@ -1,0 +1,11 @@
+ISO Atlas Professional 2026
+Application version: 3.0.0
+Build date: 2026-08-05
+Data status: 2026-08-05
+Languages: EN / CZ / DE
+Standards and modules: 7
+Requirement/guidance records: 289
+Audit questions: 3,468
+Process areas: 16
+Assistant rule sets: 18
+Service-worker cache: iso-atlas-professional-3.0.0
